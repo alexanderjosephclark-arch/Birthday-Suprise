@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy Birthday ❤️</title>
+  <title>Happy Birthday Lizzie ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -55,8 +55,16 @@
       animation: fadeIn 1s ease;
     }
 
-    .hotel {
-      font-size: 1.2rem;
+    .hotel-img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 1rem 0;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    a {
+      text-decoration: none;
+      color: #ff7a7a;
       font-weight: bold;
     }
 
@@ -69,15 +77,26 @@
 
 <body>
   <div class="card">
-    <h1>Happy Birthday  Lizzie❤️</h1>
+    <h1>Happy Birthday Lizzie ❤️</h1>
     <p>I made something just for you…</p>
 
     <button onclick="showSurprise()">Open your surprise 🎁</button>
 
     <div class="surprise" id="surprise">
-      <p class="hotel">We’re going away together ✨</p>
+      <p><strong>We’re going away together ✨</strong></p>
+
+      <a href="https://liveleven.com/our-rooms/living-space/" target="_blank">
+        <img
+          class="hotel-img"
+          src="https://liveleven.com/wp-content/uploads/2023/06/Live-Leven-Living-Space.jpg"
+          alt="Live Leven Living Space"
+        />
+        Tap the photo to see where we're staying 💕
+      </a>
+
       <p>📍 <strong>Live Leven</strong></p>
       <p>🗓️ <strong>24 January</strong></p>
+
       <p>
         A little escape just for us.<br />
         I can’t wait to celebrate with you ❤️
