@@ -36,8 +36,8 @@
     }
 
     button {
-      margin-top: 1.5rem;
-      padding: 14px 28px;
+      margin-top: 1rem;
+      padding: 12px 24px;
       font-size: 1rem;
       border: none;
       border-radius: 30px;
@@ -50,6 +50,16 @@
     button:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-top: 1rem;
+      width: 50%;
+      text-align: center;
     }
 
     .surprise {
@@ -71,7 +81,7 @@
       font-weight: bold;
     }
 
-    /* Carousel styles */
+    /* Carousel */
     .carousel {
       position: relative;
     }
@@ -117,11 +127,12 @@
 </head>
 
 <body>
-  <div class="card">
+  <div class="card" id="card">
     <h1>Happy Birthday Lizzie ❤️</h1>
-    <p>I made something just for you…</p>
-
-    <button onclick="showSurprise()">Open your surprise 🎁</button>
+    <p>Enter your birthday day to unlock your surprise:</p>
+    <input type="text" id="birthdayInput" placeholder="DD" maxlength="2"/>
+    <br/>
+    <button onclick="checkPassword()">Unlock 🎁</button>
 
     <div class="surprise" id="surprise">
       <p><strong>We’re going away together ✨</strong></p>
@@ -148,6 +159,17 @@
   </div>
 
   <script>
+    function checkPassword() {
+      const input = document.getElementById('birthdayInput').value.trim();
+      if(input === "11") { // birthday day
+        document.getElementById('birthdayInput').style.display = 'none';
+        document.querySelector('button').style.display = 'none';
+        showSurprise();
+      } else {
+        alert("Hmm… that doesn't seem right! Try again 🎂");
+      }
+    }
+
     function showSurprise() {
       document.getElementById('surprise').style.display = 'block';
       launchConfetti();
@@ -179,7 +201,7 @@
         images[index].classList.remove('active');
         index = (index + 1) % images.length;
         images[index].classList.add('active');
-      }, 3000); // change image every 3 seconds
+      }, 3000);
     }
   </script>
 </body>
