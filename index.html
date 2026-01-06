@@ -71,6 +71,25 @@
       font-weight: bold;
     }
 
+    /* Carousel styles */
+    .carousel {
+      position: relative;
+    }
+
+    .carousel img {
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+      animation: fade 1s ease;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     /* Confetti */
     .confetti {
       position: fixed;
@@ -108,12 +127,14 @@
       <p><strong>We’re going away together ✨</strong></p>
 
       <a href="https://liveleven.com/our-rooms/living-space/" target="_blank">
-        <img
-          class="hotel-img"
-          src="https://liveleven.com/wp-content/uploads/2023/06/Live-Leven-Living-Space.jpg"
-          alt="Live Leven Living Space"
-        />
-        Tap the photo to see where we're staying 💕
+        <div class="carousel">
+          <img class="hotel-img active" src="live1.jpg" alt="Live Leven photo 1" />
+          <img class="hotel-img" src="live2.jpg" alt="Live Leven photo 2" />
+          <img class="hotel-img" src="live3.jpg" alt="Live Leven photo 3" />
+          <img class="hotel-img" src="live4.jpg" alt="Live Leven photo 4" />
+          <img class="hotel-img" src="live5.jpg" alt="Live Leven photo 5" />
+        </div>
+        Tap the photos to see where we're staying 💕
       </a>
 
       <p>📍 <strong>Live Leven</strong></p>
@@ -121,7 +142,7 @@
 
       <p>
         A little escape just for us.<br />
-        I can’t wait to celebrate with you ❤️
+        I can’t wait to celebrate you ❤️
       </p>
     </div>
   </div>
@@ -130,6 +151,7 @@
     function showSurprise() {
       document.getElementById('surprise').style.display = 'block';
       launchConfetti();
+      startCarousel();
     }
 
     function launchConfetti() {
@@ -147,6 +169,17 @@
 
         setTimeout(() => confetti.remove(), 3000);
       }
+    }
+
+    function startCarousel() {
+      const images = document.querySelectorAll('.carousel img');
+      let index = 0;
+
+      setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 3000); // change image every 3 seconds
     }
   </script>
 </body>
